@@ -1,6 +1,6 @@
 # CMS Cloud Manager: App documentation
 
-
+The CMS Cloud Manager app lets you create projects, choose options, and thanks to the connection to providers' APIs, obtain the YAML file to run with the CLI tool, or run it directly.
 
 ## Prerequisites
 

@@ -52,3 +52,14 @@ To efficiently manage multiple CMS options and their possible combinations, the 
 
 ![The team is working hard](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/photo-003.jpeg)
 
+### First Recap
+
+Six hours after the project began, we already had several parts up and running. On one hand, the CLI tool—with its various components—was operating independently, so the next step was to connect them.
+
+The APP was also starting to store data and feature a usable interface, initiating the process of selecting the project, connecting to the API to explore available options, and generating the YAML file—or later, executing the CLI directly from the same server.
+
+All of this ended up being developed in Python as a common backend system.
+
+Also, some ideas came up...
+
+![A chat?](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/screenshot-chat.png)
