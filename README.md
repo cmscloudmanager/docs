@@ -8,7 +8,17 @@ The project is a tool that, in addition to installing a specific CMS, allows for
 
 Here is the [GitHub Project](https://github.com/cmscloudmanager).
 
-## The initial idea
+**Docs**
+
+- Blog
+- Documentation
+
+
+---
+
+## Blog
+
+### The initial idea
 
 The project's initial idea was to develop a tool that simplifies securely setting up a CMS on your own server.
 
@@ -22,7 +32,7 @@ Could an open solution with similar capabilities be created? The answer is yes, 
 
 The project aims to create a tool that allows users to easily deploy a CMS to a cloud server by simply selecting their preferred cloud provider (such as Hetzner, Google, Amazon, Azure, etc.), choosing their desired CMS (WordPress, Drupal, Joomla, etc.), and answering basic questions like "How many daily visitors do you expect?". Based on these inputs, the tool will programmatically provision a suitable server using the cloud provider's API, configure it securely according to best practices, and automatically deploy all necessary components, providing a scalable, hassle-free solution.
 
-## First steps
+### First steps
 
 After presenting the initial concept of the project, the team began by introducing each of its eight members, highlighting their respective skill sets, and exploring ideas for potential features. The team possesses extensive experience in development, systems, and infrastructure—ideal skills for a project like this.
 
@@ -36,3 +46,7 @@ To efficiently manage multiple CMS options and their possible combinations, the 
 
 ![The team is working hard](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/photo-003.jpeg)
 
+
+---
+
+## Docs
