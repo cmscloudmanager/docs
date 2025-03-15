@@ -1,1 +1,1 @@
-# docs
+# CMS Cloud Manager documentation
