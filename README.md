@@ -11,8 +11,8 @@ Here is the [GitHub Project](https://github.com/cmscloudmanager).
 **Docs**
 
 - [Blog](#blog)
+- [App Documentation](app.md)
 - [CLI Documentation](cli.md)
-- [Panel Documentation](panel.md)
 
 ---
 
