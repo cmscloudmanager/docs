@@ -1,58 +1,10 @@
-# CMS Cloud Manager blog / documentation
-
-<img src="https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/cmscloudmanager.png" alt="CMS Cloud Manager" width="128" align="right">
-
-The **CMS Cloud Manager** project is a tool created at the Cloudfest Hackathon 2025 by [@akinom500](https://github.com/akinom500), [@BrutalBirdie](https://github.com/BrutalBirdie), [@commitnix](https://github.com/commitnix), [@nixautomatix](https://github.com/nixautomatix), [@markoheijnen](https://github.com/markoheijnen), [@ochorocho](https://github.com/ochorocho), led by [@Hayajiro](https://github.com/Hayajiro), and [@javiercasares](https://github.com/javiercasares).
-
-The project is a tool that, in addition to installing a specific CMS, allows for the creation and setup of a server for optimal performance, taking security and efficiency into account.
-
-Here is the [GitHub Project](https://github.com/cmscloudmanager).
-
-**Docs**
-
-- [Blog](#blog)
-- [CLI Documentation](cli.md)
-- [Panel Documentation](panel.md)
-
----
-
-## Blog
-
-### The initial idea
-
-The project's initial idea was to develop a tool that simplifies securely setting up a CMS on your own server.
-
-Today, there are plenty of solutions for shared hosting that allow deploying CMS platforms like WordPress with just a single click. But what about options for users who have a VPS or cloud server?
-
-![First team meeting](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/photo-001.jpeg)
-
-In the past, providers like Cloudways offered systems enabling remote server setup on platforms such as DigitalOcean, complete with secure, scalable WordPress installations and built-in backups. However, these solutions were proprietary and closed.
-
-Could an open solution with similar capabilities be created? The answer is yes, and that's exactly what we're aiming to achieve with this project for the Cloudfest Hackathon 2025.
-
-The project aims to create a tool that allows users to easily deploy a CMS to a cloud server by simply selecting their preferred cloud provider (such as Hetzner, Google, Amazon, Azure, etc.), choosing their desired CMS (WordPress, Drupal, Joomla, etc.), and answering basic questions like "How many daily visitors do you expect?". Based on these inputs, the tool will programmatically provision a suitable server using the cloud provider's API, configure it securely according to best practices, and automatically deploy all necessary components, providing a scalable, hassle-free solution.
-
-### First steps
-
-After presenting the initial concept of the project, the team began by introducing each of its eight members, highlighting their respective skill sets, and exploring ideas for potential features. The team possesses extensive experience in development, systems, and infrastructure—ideal skills for a project like this.
-
-The agreed-upon approach involves creating a web-based control panel, which will gather user input through simple questions and generate a YAML file. This YAML file will serve as the initial configuration input for Ansible to provision and set up the server.
-
-![First preview of the panel](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/screenshot-first.png)
-
-To efficiently manage multiple CMS options and their possible combinations, the CMS deployments will be containerized using Docker. This strategy ensures scalability of volumes—even beyond the initial server—by leveraging the capabilities provided by cloud platforms. Additionally, it facilitates easy migration across different infrastructures and simplifies backup management.
-
-![The team is working hard](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/photo-002.jpeg)
-
-![The team is working hard](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/photo-003.jpeg)
-
-## CLI Documentation
+# CMS Cloud Manager: CLI documentation
 
 This documentation explains the complete setup required to deploy a CMS (like WordPress, Drupal, Joomla) on a cloud provider (e.g., Hetzner) using an automatically generated YAML configuration, Ansible, and Docker.
 
 *Note: The YAML file is created automatically by a web panel (currently under development). For this guide, we assume the YAML file (`config.yml`) already exists on your server.*
 
-### Prepare Your Ubuntu Server
+## Prepare Your Ubuntu Server
 
 Log into your Ubuntu server via SSH:
 
@@ -72,7 +24,7 @@ Install essential dependencies:
 sudo apt -y install software-properties-common curl python3-pip python3-venv git
 ```
 
-### Install Docker and Docker Compose
+## Install Docker and Docker Compose
 
 Docker will allow you to run CMS applications as containers.
 
@@ -104,7 +56,7 @@ Check Docker Compose:
 docker-compose --version
 ```
 
-### Install Ansible
+## Install Ansible
 
 Ansible automates the server provisioning and CMS deployment:
 
@@ -119,7 +71,7 @@ Verify Ansible installation:
 ansible --version
 ```
 
-### Prepare Your Project Structure
+## Prepare Your Project Structure
 
 Create a new directory for the deployment:
 
@@ -138,7 +90,7 @@ cms-deployment/
 └── playbook.yml  (we'll create this in the next step)
 ```
 
-### Create an Ansible Playbook
+## Create an Ansible Playbook
 
 Now, create a basic Ansible playbook called `playbook.yml`. (In practice, your team will likely provide this file.)
 
@@ -171,7 +123,7 @@ Here’s a minimal example of what `playbook.yml` might look like, referencing y
 
 *(Note: The exact content of `playbook.yml` may vary depending on your automation requirements.)*
 
-### Install Ansible Collections and Dependencies
+## Install Ansible Collections and Dependencies
 
 You’ll need the Hetzner collection if using Hetzner (adapt if another cloud provider is chosen):
 
@@ -185,7 +137,7 @@ Install required Python dependencies:
 pip install hcloud
 ```
 
-### Execute the Ansible Playbook
+## Execute the Ansible Playbook
 
 Run your Ansible playbook using the provided command (substitute your actual email for Let’s Encrypt):
 
@@ -195,7 +147,7 @@ ansible-playbook --connection=local --inventory 127.0.0.1, playbook.yml -e letse
 
 This command will provision a server based on your YAML configuration (`config.yml`).
 
-### Deploying the CMS Containers (Docker)
+## Deploying the CMS Containers (Docker)
 
 After provisioning the server, you'll SSH into your newly created instance:
 
@@ -249,7 +201,7 @@ docker-compose up -d
 
 Verify your CMS is running by accessing the server IP via your web browser.
 
-### Secure Your CMS (Optional: Let’s Encrypt)
+## Secure Your CMS (Optional: Let’s Encrypt)
 
 You can use tools like `traefik` or `certbot` for SSL/TLS certificates. For example, to quickly set up HTTPS with Certbot:
 
@@ -265,7 +217,7 @@ Obtain SSL Certificate (assuming you’ve already pointed a domain to your serve
 sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com --email something@example.com --agree-tos --redirect
 ```
 
-### Backups and Scalability
+## Backups and Scalability
 
 - Configure regular backups using cloud storage providers (AWS S3, Hetzner Storage Box).
 - Adjust resources and scale containers easily via Docker Compose configuration.
@@ -275,6 +227,3 @@ sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com --email something@e
 You’ve successfully deployed your CMS server using YAML configuration, Ansible, Docker, and your selected cloud provider.
 
 This setup offers flexibility, scalability, and security, making it ideal for your CMS deployments.
-
-## Panel Documentation
-
