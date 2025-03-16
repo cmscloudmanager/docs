@@ -49,10 +49,6 @@ If you want, use nginx as proxy so its possible to install a certificate.
 server {
     listen 80;
     server_name example.com;
-
-    root /var/www/app;
-    index index.html;
-
     location / {
         proxy_pass http://127.0.0.1:5000/;
         proxy_http_version 1.1;
