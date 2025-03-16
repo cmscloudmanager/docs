@@ -8,11 +8,13 @@ The project is a tool that, in addition to installing a specific CMS, allows for
 
 Here is the [GitHub Project](https://github.com/cmscloudmanager).
 
+Here is a [Blog](#blog) on how the project went.
+
 **Docs**
 
-- [Blog](#blog)
 - [App Documentation](app.md)
 - [CLI Documentation](cli.md)
+- [User Documentation](user.md)
 
 ---
 
