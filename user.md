@@ -10,8 +10,8 @@ The **CMS Cloud Manager** panel is very easy to use and features various tools f
 
 ### CMS / Apps
 
-- TYPO3
-- WordPress
+- TYPO3 ([GitHub](https://github.com/cmscloudmanager/typo3))
+- WordPress ([GitHub](https://github.com/cmscloudmanager/wordpress))
 
 ## Access the site
 
