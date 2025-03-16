@@ -63,3 +63,11 @@ All of this ended up being developed in Python as a common backend system.
 Also, some ideas came up...
 
 ![A chat?](https://raw.githubusercontent.com/cmscloudmanager/docs/refs/heads/main/image/screenshot-chat.png)
+
+### Starting the Second Day
+
+On the second day of the Hackathon, a brief meeting was held to review the project's status.
+
+On the API side, all three components that will make it up are ready. The first component will connect to the cloud providers' APIs and enable the provisioning of machines. The second part will configure the elements inside the machine so that Ansible and its playbooks can be used. The third component will launch the playbooks and ultimately create all the services, handle security, and finish setting up the applications and CMS.
+
+The frontend offers several possibilities. For now, the main approach is to launch the project from the local environment in such a way that a YAML file can be generated for later execution using the CLI, and it now allows API keys to be stored in a local database, keeping them readily available and enabling multiple profiles.
