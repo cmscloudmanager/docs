@@ -76,6 +76,8 @@ To run the server part of the backend we will need `poetry`
 curl -sSL https://install.python-poetry.org | python3 -
 export PATH="/root/.local/bin:$PATH"
 source ~/.bashrc
+poetry add flask
+poetry add gunicorn
 poetry install
 poetry --version
 ```
@@ -84,7 +86,7 @@ Then we run the server
 
 ```bash
 cd app/server/
-poetry run flask run --port 5001
+poetry run gunicorn -w 4 -b 0.0.0.0:5001 app:app
 ```
 
 ### Configure the Client
