@@ -2,86 +2,114 @@
 
 The CMS Cloud Manager app lets you create projects, choose options, and thanks to the connection to providers' APIs, obtain the YAML file to run with the CLI tool, or run it directly.
 
-## Prerequisites
+## Docker install
 
-- Docker: Ensure Docker is installed and running on your system.
-- Git: To clone the repository.
-- (Optional) Docker Compose: If you plan to run multiple containers or use a Compose file.
+Run the frontend
 
-## Installation
+```bash
+docker build -t cms-cloud-manager-frontend .
+docker run -d -p 80:80 cms-cloud-manager-frontend
+```
+
+Run the backend
+
+```bash
+docker build -t cms-cloud-manager-backend .
+docker run -d -p 5001:5001 cms-cloud-manager-backend
+```
+
+## Docker Compose install
+
+```bash
+docker-compose up --build -d
+```
+
+## Direct install
+
+### Prerequisites
+
+- Git
+- NodeJS
+- Python
+
+### Install Git
+
+Install Git.
+
+```bash
+apt install -y git
+git -v
+```
+
+### Install NodeJS
+
+Install NodeJS (for example, with Node Version Manager).
+
+```bash
+wget -q -O- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+
+. ~/.bashrc
+nvm --version
+
+nvm install node
+node -v
+```
 
 ### Clone the Repository
 
-Clone the repository to your local machine using Git:
+Clone the repository using Git:
 
 ```bash
+cd /path/to/software/
 git clone https://github.com/cmscloudmanager/app.git
-cd app
 ```
 
-### Review the Dockerfile
+### Configure the Server
 
-Open the `Dockerfile` provided in the repository to understand the environment setup and dependencies. This helps if you need to customize the image or troubleshoot issues.
-
-### Build the Docker Image
-
-Build the Docker image using the following command:
+To run the server part of the backend we will need `poetry`
 
 ```bash
-docker build -t cmscloudmanager/app .
+curl -sSL https://install.python-poetry.org | python3 -
+export PATH="/root/.local/bin:$PATH"
+source ~/.bashrc
+poetry install
+poetry --version
 ```
 
-This command tells Docker to build an image from the Dockerfile in the current directory and tag it as `cmscloudmanager/app`.
-
-### Run the Docker Container
-
-Once the image is built, run the container:
+Then we run the server
 
 ```bash
-docker run -d -p 80:80 cmscloudmanager/app
+cd app/server/
+poetry run flask run --port 5001
 ```
 
-- The `-d` flag runs the container in detached mode.
-- The `-p 80:80` flag maps port 80 in the container to port 80 on your host machine (adjust these ports as needed).
-
-### Verify the Application
-
-After the container starts, open your browser and navigate to:
-
-```
-http://localhost
-```
-
-You should see the application running. If the port mapping or application entry point is different, adjust the URL accordingly.
-
-### (Optional) Using Docker Compose
-
-If the project includes a `docker-compose.yml` file, you can use Docker Compose to manage the container(s). Simply run:
+### Configure the Client
 
 ```bash
-docker-compose up -d
+cd app/client
+npm install
+npm run build
 ```
 
-This command builds and starts the containers as defined in the `docker-compose.yml` file.
+### (optional) Using nginx as proxy
 
-### Managing the Container
+If you want, use nginx as proxy so its possible to install a certificate.
 
-- **Check Running Containers:**
+```nginx
+server {
+    listen 80;
+    server_name example.com;
 
-  ```bash
-  docker ps
-  ```
+    root /var/www/app;
+    index index.html;
 
-- **View Logs:**
-
-  ```bash
-  docker logs <container_id>
-  ```
-
-- **Stop the Container:**
-
-  ```bash
-  docker stop <container_id>
-  ```
-
-Replace `<container_id>` with the actual container ID from the `docker ps` output.
+    location / {
+        proxy_pass http://127.0.0.1:5001/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
