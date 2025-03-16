@@ -38,7 +38,7 @@ docker-compose up --build -d
 ### Open the URL
 
 ```
-http://127.0.0.1:5000/
+http://127.0.0.1:5001/
 ```
 
 ### (optional) Using nginx as proxy
@@ -50,7 +50,7 @@ server {
     listen 80;
     server_name example.com;
     location / {
-        proxy_pass http://127.0.0.1:5000/;
+        proxy_pass http://127.0.0.1:5001/;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
