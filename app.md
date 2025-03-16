@@ -28,6 +28,14 @@ apt update
 apt -y install docker-ce docker-ce-cli containerd.io docker-compose
 ```
 
+### Download the project
+
+```bash
+cd /path/to/project/
+git clone https://github.com/cmscloudmanager/app.git
+cd app/
+```
+
 ### Build the Docker
 
 ```bash
