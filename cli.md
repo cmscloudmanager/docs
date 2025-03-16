@@ -1,8 +1,6 @@
 # CMS Cloud Manager: CLI documentation
 
-This documentation explains the complete setup required to deploy a CMS (like WordPress, Drupal, Joomla) on a cloud provider (e.g., Hetzner) using an automatically generated YAML configuration, Ansible, and Docker.
-
-*Note: The YAML file is created automatically by a web panel (currently under development). For this guide, we assume the YAML file (`config.yml`) already exists on your server.*
+The CLI enables the execution of a specialized YAML file to deploy everything needed on the server. Thanks to the APP, creating the YAML is straightforward. In fact, you can even run the CLI directly from the panel without needing to do anything else.
 
 ## Prepare Your Ubuntu Server
 
