@@ -1,10 +1,10 @@
 # CMS Cloud Manager: User documentation
 
-El panel del CMS Cloud Manager es muy sencillo de utilizar y tiene distintas herramientas para su funcionamiento.
+The **CMS Cloud Manager** panel is very easy to use and features various tools for its operation.
 
-## Proveedores y CMS / Apps soportadas
+## Supported Providers and CMS / Apps
 
-### Proveedores
+### Providers
 
 - Hetzner
 
@@ -13,9 +13,18 @@ El panel del CMS Cloud Manager es muy sencillo de utilizar y tiene distintas her
 - TYPO3
 - WordPress
 
-## Estableciendo perfiles
+## Access the site
 
-Gracias a los perfiles de usuario, puedes dar de alta distintas cuentas de distintos proveedores. Esto sólo se activará en la versión local de la herramienta instalable.
+This is a website, so you can access the website with the URL provided to you.
 
-Gracias a este sistema puedes añadir y gestionar distintas API keys de distintos proveedores.
+## Setting Up Profiles
+
+Thanks to user profiles, you can register different accounts for various providers. This feature will only be activated in the local version of the installable tool.
+
+With this system, you can add and manage different API keys from various providers.
+
+## Creating a Project
+
+blah blah blah...
+
 
