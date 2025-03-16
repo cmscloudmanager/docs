@@ -2,7 +2,11 @@
 
 The CMS Cloud Manager app lets you create projects, choose options, and thanks to the connection to providers' APIs, obtain the YAML file to run with the CLI tool, or run it directly.
 
-## Docker install
+- [Docker](#docker)
+- [Docker Compose](#docker-compose)
+- [Direct](#direct)
+
+## Docker
 
 Run the frontend
 
@@ -18,13 +22,13 @@ docker build -t cms-cloud-manager-backend .
 docker run -d -p 5001:5001 cms-cloud-manager-backend
 ```
 
-## Docker Compose install
+## Docker Compose
 
 ```bash
 docker-compose up --build -d
 ```
 
-## Direct install
+## Direct
 
 ### Prerequisites
 
