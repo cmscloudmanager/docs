@@ -17,14 +17,45 @@ The **CMS Cloud Manager** panel is very easy to use and features various tools f
 
 This is a website, so you can access the website with the URL provided to you.
 
-## Setting Up Profiles
+- User: `admin@admin.admin`
+- Password: `password`
 
-Thanks to user profiles, you can register different accounts for various providers. This feature will only be activated in the local version of the installable tool.
+![Login](image/app-001.png)
 
-With this system, you can add and manage different API keys from various providers.
+## Providers setting
 
-## Creating a Project
+You can set a Provider API key. It will save the API there so you can create a Project later.
 
-blah blah blah...
+Go to the provider list and Add.
 
+![Provider list](image/app-002.png)
 
+Fill the form to save the Provider information.
+
+![Create a provider](image/app-003.png)
+
+## Project creation
+
+You can create a Project, and get the YAML file to run it on the CLI tool.
+
+Go to the project list and Add.
+
+![Project list](image/app-004.png)
+
+Fill the form about the project.
+
+![Project information](image/app-005.png)
+
+Fill the form about the provider and other configurations.
+
+![Extra information](image/app-006.png)
+
+And get the YAML file to run on the CLI tool.
+
+![Get the YAML file](image/app-007.png)
+
+And, run it with the CLI tool.
+
+```bash
+python3 main.py deploy ~/my_manifest.yml
+```
