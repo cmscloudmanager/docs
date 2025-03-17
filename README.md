@@ -73,3 +73,17 @@ On the second day of the Hackathon, a brief meeting was held to review the proje
 On the API side, all three components that will make it up are ready. The first component will connect to the cloud providers' APIs and enable the provisioning of machines. The second part will configure the elements inside the machine so that Ansible and its playbooks can be used. The third component will launch the playbooks and ultimately create all the services, handle security, and finish setting up the applications and CMS.
 
 The frontend offers several possibilities. For now, the main approach is to launch the project from the local environment in such a way that a YAML file can be generated for later execution using the CLI, and it now allows API keys to be stored in a local database, keeping them readily available and enabling multiple profiles.
+
+### Full Steam Ahead
+
+Setting the day’s priorities has been easy, and now we have the tools!
+
+On one hand, the CLI tool has been finalized by connecting all three parts into one, allowing it to be easily executed by providing the YAML file that contains all the necessary elements to set up the server and create the application or CMS.
+
+On the other hand, the App that allows you to easily create the YAML file, after several steps and meetings, is now working thanks to Docker Compose. This means it can be set up almost anywhere, although it’s designed to work locally to prevent data leaks—such as API Keys—which can be stored locally.
+
+### The End Is Near
+
+It’s the last day in the morning, just 3 hours before the presentation and project delivery.
+
+Now it’s time for the final touches, to finish the details of the presentation and decide what to say, since there are only 5 slides and 5 minutes to present. In fact, tomorrow, Tuesday, the presentation will be given at Cloudfest and will only last 2 minutes. It needs to be clear, concise, and focused on what really needs to be said and explained.
